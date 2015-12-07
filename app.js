@@ -80,7 +80,7 @@ if (correct === 5){
 }	
 */
 
-//Functions
+/* Functions
 function alertRandom(lower, upper){
 	if(isNaN(lower)  || isNaN(upper) ){
 		throw new Error('This function needs numbers');
@@ -90,6 +90,51 @@ function alertRandom(lower, upper){
 console.log(alertRandom(1,'five'));
 console.log(alertRandom(200,500));
 console.log(alertRandom(20,24));
+*/
+var questions = [["how many states are in the USA?", 50],["how may fingers does an average human have?", 10],["how many providences are in the Canada?", 20]];
+var question;
+var answer;
+var correctAnswer = 0;
+var response;
+var html;
+var correctList = [];
+var incorrectList = [];
+
+function print(message) {
+ var outputDiv = document.getElementById('output');
+ outputDiv.innerHTML = message;
+}
+
+function buildList(arr){
+  var listHTML = '<ol>';
+  for (var i = 0; i < arr.length; i +=1){
+   listHTML += '<li>' + arr[i] + '</li>'; 
+  }
+  listHTML += '</ol>';
+  return listHTML;
+}
+
+for(var i = 0; i < questions.length; i++){
+   question = questions[i][0];
+   answer = questions[i][1];
+   response = parseInt(prompt(question));
+   console.log(answer);
+   if (response === answer){
+     correctAnswer++;
+     correctList.push(question);
+   }
+  else{
+    incorrectList.push(question);
+  }
+}
+html = "<h2>You got " + correctAnswer + " question(s) right.</h2>"
+html += "<h2>Correct Questions</h2>"
+html += buildList(correctList);
+html += "<h2>Incorrect Questions</h2>"
+html += buildList(incorrectList);
+print(html);
+
+
 
 
 
