@@ -91,7 +91,24 @@ console.log(alertRandom(1,'five'));
 console.log(alertRandom(200,500));
 console.log(alertRandom(20,24));
 */
-var questions = [["how many states are in the USA?", 50],["how may fingers does an average human have?", 10],["how many providences are in the Canada?", 20]];
+
+
+//QUIZ
+/*
+var questions = [
+  {
+  question: "how many states are in the USA?", 
+  answer: 50
+  },
+  {
+  question: "how may fingers does an average human have?", 
+  answer: 10
+  },
+  {
+  question:"how many providences are in the Canada?", 
+  answer: 20
+  }
+  ];
 var question;
 var answer;
 var correctAnswer = 0;
@@ -115,8 +132,8 @@ function buildList(arr){
 }
 
 for(var i = 0; i < questions.length; i++){
-   question = questions[i][0];
-   answer = questions[i][1];
+   question = questions[i].question;
+   answer = questions[i].answer;
    response = parseInt(prompt(question));
    console.log(answer);
    if (response === answer){
@@ -135,7 +152,74 @@ html += buildList(incorrectList);
 print(html);
 
 
+var car = {
+  name: "Stephen",
+  age: 25
+};
+
+for (var prop in car){
+  console.log(car[prop]);
+}
+/*
+
+//OBJECTS
+
+/*
+var person  = {
+  name: "Stephen",
+  country: "USA",
+  age: 35,
+};
+  message = '<p>Hi my name is ' + person.name + ' and I am from ' + person.country + 
+  ' and I am ' + person.age + ' years old. </p>'
 
 
+function print(message) {
+ var outputDiv = document.getElementById('output');
+ outputDiv.innerHTML = message;
+}
+
+print(message);
+
+for (var prop in person){
+  console.log(prop, ':', person[prop]);
+
+}
+*/
 
 
+//Object Challenge
+//Name,Track, achievements, Points
+var students = [
+{name: "Bob", track: "iOS", achievements:"none", points: 500},
+{name: "Dave", track: "Web", achievements:"none", points: 400},
+{name: "Bill", track: "Android", achievements:"none", points: 300},
+{name: "Suzy", track: "Web", achievements:"none", points: 200},
+{name: "Jill", track: "iOS", achievements:"none", points: 100}
+];
+var message = " ";
+var student;
+var search; 
+function print(message) {
+ var outputDiv = document.getElementById('output');
+ outputDiv.innerHTML = message;
+}
+
+function getStudentReport(student){
+   var report = '<h2>Student:  '+ student.name + '</h2>'; 
+   return report; 
+}
+
+while(true){
+  search = prompt("Search for a student or type quit to exit.");
+  if(search === null || search.toLowerCase() === "quit"){
+    break;
+  }
+    for (var i = 0; i < students.length; i += 1){
+    student = students[i];
+    if (student.name === search){
+      message = getStudentReport( student );
+      print(message);
+    }
+    }
+}
